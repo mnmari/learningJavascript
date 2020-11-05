@@ -24,8 +24,7 @@ for (let i = 0; i < Numbers.length; i++){
 }
 
 function isEven(number){
-    if (number % 2 === 0)
-        return 1;
+    return number % 2 === 0
 }
 
 //for (let i = 0; i < Even.length; i++)
