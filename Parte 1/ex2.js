@@ -3,9 +3,16 @@
 // Ex2
 //Crie um programa que receba um número e retorne se ele é par ou ímpar.
 
-let Numero = 103;
+"use strict"
 
-if (Numero % 2 == 0)
+let Numbers = 103;
+
+if (isEven(Numbers))
     console.log("O número é par.");
 else
     console.log("O número é impar.");
+
+function isEven(number){
+    if (number % 2 === 0)
+        return 1;
+}

@@ -3,8 +3,10 @@
 // Ex1
 // Crie um programa para imprimir de 1 a 100
 
-let Numero;
+"use strict"
 
-for (Numero=1; Numero<=100; Numero++){
-    console.log(Numero);
+let Numbers;
+
+for (Numbers = 0; Numbers < 100; Numbers++){
+    console.log(Numbers+1);
 }

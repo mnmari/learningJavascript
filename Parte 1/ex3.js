@@ -3,30 +3,33 @@
 //## Ex3
 // Usando os dois exercícios anteriores, crie um programa que separe os números de 1 a 100 em dois arrays, um com os pares e um com os ímpares.
 
-let Numeros=[], Pares=[], Impares=[];
+"use strict"
 
-for (i = 0; i < 100; i++){
-    Numeros[i] = i + 1;
+let Numbers=[];
+
+for (let i = 0; i < 100; i++){
+    Numbers.push(i+1);
 }
 
-let indicePar = 0, indiceImpar = 0;
-for (i = 0; i < 100; i++){
+let Even=[];
+let Odd=[];
 
-    if (Numeros[i] % 2 == 0){
-        Pares[indicePar] = Numeros[i];
-        indicePar++;
-    }
-   
-    else{
-    Impares[indiceImpar] = Numeros[i];
-    indiceImpar++;
-    }
+for (let i = 0; i < Numbers.length; i++){
+
+    if (isEven(Numbers[i]))
+        Even.push(Numbers[i]);
+
+    else
+        Odd.push(Numbers[i]);
 }
 
-//for (i = 0; i < Pares.length; i++){
-//    console.log(Pares[i]);
-//}
+function isEven(number){
+    if (number % 2 === 0)
+        return 1;
+}
 
-//for (i = 0; i < Impares.length; i++){
-//    console.log(Impares[i]);
-//}
+//for (let i = 0; i < Even.length; i++)
+//    console.log(Even[i]);
+
+//for (let i = 0; i < Even.length; i++)
+//console.log(Odd[i]);
