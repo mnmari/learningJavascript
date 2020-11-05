@@ -13,6 +13,5 @@ else
     console.log("O número é impar.");
 
 function isEven(number){
-    if (number % 2 === 0)
-        return 1;
+    return number % 2 === 0
 }
