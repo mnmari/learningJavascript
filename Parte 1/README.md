@@ -33,4 +33,19 @@ Faça um programa com a operação contrária do exercício anterior, monte uma 
 Faça um programa que receba um texto, uma letra e que conte quantas palavras do texto começam com a letra recebida.
 
 ## Ex10
-Com o mesmo programa do exercício passado, agora retorne quais são as palavras que começam com a letra recebidas.
+Com o mesmo programa do exercício passado, agora retorne quais são as palavras que começam com a letra recebida.
+
+## Ex11
+Faça um programa que receba uma string e imprima ela ao contrário.
+
+## Ex12
+Faça um programa que receba 3 números e imprima o menor e o maior entre eles.
+
+## Ex13
+Faça um programa que receba um array com 5 números e imprima o menor e o maior entre eles.
+
+## Ex14 
+Faça um programa que receba um array com número e imprima um array com todos os seus valores ao quadrado.
+
+## Ex15
+Faça a mesma coisa do exercício anterior, mas com a raiz quadrada dos valores.
