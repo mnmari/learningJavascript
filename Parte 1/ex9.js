@@ -10,15 +10,13 @@ let textData = "Dóris sai de cima da pia";
 let Character = "d";
 let Counter = 0;
 
-textData
+let Length = textData
     .toLowerCase()
     .split(" ")
-    .filter((item) =>{
-        if (item.charAt(0) === Character)
-            Counter++;
-    });
+    .filter((item) => item.charAt(0) === Character)
+    .length;
 
-console.log(Counter);
+console.log(Length);
 
 //Forma 2
 /*let textData = "Dóris sai de cima da pia";

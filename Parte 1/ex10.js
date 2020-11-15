@@ -9,12 +9,8 @@ let textData = "Dóris sai de cima da pia";
 let Character = "d";
 let Words = [];
 
-textData
+console.log(
+    textData
     .toLowerCase()
     .split(" ")
-    .filter((item) =>{
-        if (item.charAt(0) === Character)
-            Words.push(item);
-    });
-
-console.log(Words);
+    .filter((item) => item.charAt(0) === Character));

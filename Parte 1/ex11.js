@@ -8,6 +8,8 @@
 let textData = "Dóris sai de cima da pia";
 textData = textData.split("");
 
+console.log(textData.reverse().join(""));
+
 let textBackwards = [];
 let textLength = textData.length;
 

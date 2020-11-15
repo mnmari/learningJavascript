@@ -11,12 +11,8 @@ Numbers.sort();
 console.log(Numbers[0]);
 console.log(Numbers[Numbers.length-1]);
 
-let Num1 = 2;
-let Num2 = 6;
-let Num3 = 5;
-
-let Lowest = Math.min(Num1, Num2, Num3);
-let Highest = Math.max(Num1, Num2, Num3);
+let Lowest = Math.min(...Numbers);
+let Highest = Math.max(...Numbers);
 
 console.log(Lowest);
 console.log(Highest);
