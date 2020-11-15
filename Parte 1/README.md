@@ -49,3 +49,18 @@ Faça um programa que receba um array com número e imprima um array com todos o
 
 ## Ex15
 Faça a mesma coisa do exercício anterior, mas com a raiz quadrada dos valores.
+
+## Ex16
+Faça um programa que imprima a data e hora de agora.
+
+## Ex17
+Faça um programa que receba uma data no formato "2020-12-31" e some uma semana a essa data.
+
+## Ex18
+Faça um programa que receba uma data e retorne um último dia do mês daquela data.
+
+## Ex19
+Faça um programa que receba uma data e retorne se ela est no passado ou no futuro.
+
+## Ex20
+Faça um programa que retorne um array apenas com os dias (valor numérico) que ainda estão para vir no mês atual. 
