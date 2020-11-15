@@ -19,7 +19,7 @@ function extractDDD(fullphonenumber){
 }
 
 function extractPhoneNumber(fullphonenumber){
-    return fullphonenumber.slice(2, fullphonenumber.length + 1);
+    return fullphonenumber.slice(2);
 }
 
 //Array
