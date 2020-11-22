@@ -29,11 +29,13 @@ Crie a opção _write_ para o domínio _birthday_, o objeto salvo deve estar no 
 {
     "id": string,
     "name": string,
-    "date": Date 
+    "date": Date,
+    "createdAt": Date 
 }
 ```
 
-Obs.: o campo date deve guardar apenas a data, no formato YYYY-MM-dd.
+Obs1.: o campo date deve guardar apenas a data, no formato YYYY-MM-dd.
+Obs2.: o campo createdAt deve guardar a data e hora de criação do registro, em UTC.
 
 ## Ex3
 Crie a opção _list_ para o domínio _birthday_.
