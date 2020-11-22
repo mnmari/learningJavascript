@@ -39,13 +39,13 @@ Obs.: o campo date deve guardar apenas a data, no formato YYYY-MM-dd.
 Crie a opção _list_ para o domínio _birthday_.
 
 ## Ex4
-Crie a opção _update_ para o domínio _birthday_, use o campo _id_ para saber qual registro atualizar.
+Crie a opção _find_ para o domínio _birthday_, use o campo _id_ como input para encontrar o registro.
 
 ## Ex5
-Crie a opção _delete_ para o domínio _birthday_, use o campo _id_ para saber qual registro deletar.
+Crie a opção _delete_ para o domínio _birthday_, use o campo _id_ como input para saber qual registro deletar.
 
 ## Ex6
-Crie a opção _find_ para o domínio _birthday_, use o campo _id_ para encontrar o registro.
+Crie a opção _update_ para o domínio _birthday_, use o campo _id_ como input para saber qual registro atualizar.
 
 ## Ex7
 Atualize a opção _list_ para aceitar filtros. Deve ser possível filtrar por nome, data e por ambos juntos.
