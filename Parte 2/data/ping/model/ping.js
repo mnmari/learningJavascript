@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = class Ping {
-	constructor(id, time) {
+	constructor(id, createdAt) {
 		this.id = id;
-		this.time = time;
+		this.createdAt = createdAt;
 	}
 };
