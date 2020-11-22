@@ -15,6 +15,11 @@ O ponto de entrada da aplicação é o arquivo _main.js_. Para executar a aplica
 node main
 ```   
 
+Toda entidade salva na persistência deve obrigatoriamente possuir um campo _id_ único, para tal utilizaremos a biblioteca [_nanoid_](https://github.com/ai/nanoid). Para instalá-la, basta executar:
+```
+npm install
+```
+
 ## Ex1
 Na camada de apresentação, crie um domínio: _birthday_.
 
