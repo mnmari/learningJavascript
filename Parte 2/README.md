@@ -35,6 +35,7 @@ Crie a opção _write_ para o domínio _birthday_, o objeto salvo deve estar no 
 ```
 
 Obs1.: o campo date deve guardar apenas a data, no formato YYYY-MM-dd.
+
 Obs2.: o campo createdAt deve guardar a data e hora de criação do registro, em UTC.
 
 ## Ex3
