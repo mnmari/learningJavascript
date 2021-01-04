@@ -2,6 +2,7 @@
 
 let input = require("./view/util/console-extension");
 let pingController = require("./view/ping-controller");
+let birthdayController = require("./view/birthday-controller");
 
 mainLoop()
 	.then(() => {
@@ -23,6 +24,9 @@ async function mainLoop() {
 		switch (answer) {
 			case "ping":
 				await pingController.route();
+				break;
+			case "birthday":
+				await birthdayController.route();
 				break;
 			case "exit":
 				shouldContinue = false;
