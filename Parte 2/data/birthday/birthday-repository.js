@@ -18,3 +18,11 @@ module.exports.list = async () => {
 
 	return list.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
 };
+
+module.exports.find = async (request) => {
+	let list = await file.readDB(fileName);
+
+	let index = list.findIndex((item) => item.id === request);
+
+	return list[index];
+};
