@@ -21,8 +21,13 @@ module.exports.list = async () => {
 
 module.exports.find = async (request) => {
 	let list = await file.readDB(fileName);
+		
+	let anonymousObj = list.find((item) => item.id === request); 
 
-	let index = list.findIndex((item) => item.id === request);
-
-	return list[index];
+	if (anonymousObj === undefined) {
+		return null;
+	}
+	else {
+		return new Birthday(anonymousObj.id, anonymousObj.name, anonymousObj.date, anonymousObj.createdAt);
+	}
 };

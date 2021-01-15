@@ -29,8 +29,20 @@ module.exports.route = async () => {
 			case "find":
 				console.log("Please insert the birthday id.");
 				const request = await input.ask("$ ");
+				
+				try{
+					console.log(await find.run(request));
+				}
 
-				console.log(await find.run(request));
+				catch(error) {
+					if (error.message === "find_undefined"){
+						console.log("This birthday id doesn't exist!");
+					} 
+					else {
+						console.log("There was an error.");
+					}
+				}
+
 				break;
 
 			case "exit":
