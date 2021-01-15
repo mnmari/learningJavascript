@@ -18,3 +18,16 @@ module.exports.list = async () => {
 
 	return list.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
 };
+
+module.exports.find = async (request) => {
+	let list = await file.readDB(fileName);
+		
+	let anonymousObj = list.find((item) => item.id === request); 
+
+	if (anonymousObj === undefined) {
+		return null;
+	}
+	else {
+		return new Birthday(anonymousObj.id, anonymousObj.name, anonymousObj.date, anonymousObj.createdAt);
+	}
+};
