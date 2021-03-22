@@ -22,12 +22,25 @@ module.exports.list = async () => {
 module.exports.find = async (request) => {
 	let list = await file.readDB(fileName);
 		
-	let anonymousObj = list.find((item) => item.id === request); 
+	let object = list.find((item) => item.id === request); 
 
-	if (anonymousObj === undefined) {
+	if (object === undefined) {
 		return null;
 	}
 	else {
-		return new Birthday(anonymousObj.id, anonymousObj.name, anonymousObj.date, anonymousObj.createdAt);
+		return new Birthday(object.id, object.name, object.date, object.createdAt);
 	}
+};
+
+module.exports.delete = async (request) => {
+	let list = await file.readDB(fileName);
+	
+	let object = list.find((item) => item.id === request);
+
+	list.splice(list.indexOf(object), 1);
+
+	if (object === undefined)
+		return null;
+	else
+		await file.writeDB(fileName, list);
 };

@@ -4,6 +4,7 @@ let input = require("./util/console-extension");
 let list = require("../business/birthday/list");
 let write = require("../business/birthday/write");
 let find = require("../business/birthday/find");
+let remove = require("../business/birthday/delete");
 
 module.exports.route = async () => {
 	let shouldContinue = true;
@@ -28,10 +29,10 @@ module.exports.route = async () => {
 
 			case "find":
 				console.log("Please insert the birthday id.");
-				const request = await input.ask("$ ");
+				const answerFind = await input.ask("$ ");
 				
-				try{
-					console.log(await find.run(request));
+				try {
+					console.log(await find.run(answerFind));
 				}
 
 				catch(error) {
@@ -42,6 +43,24 @@ module.exports.route = async () => {
 						console.log("There was an error.");
 					}
 				}
+
+				case "delete":
+					console.log("Please insert the birthday id.");
+					const answerDelete = await input.ask("$ ");
+
+					try {
+						await remove.run(answerDelete);
+						console.log("The birthday id '" + answerDelete + "' was successfully deleted!")
+					}
+
+					catch(error) {
+						if (error.message === "delete_undefined"){
+							console.log("This birthday id doesn't exist!");
+						} 
+						else {
+							console.log("There was an error.");
+						}
+					}
 
 				break;
 
