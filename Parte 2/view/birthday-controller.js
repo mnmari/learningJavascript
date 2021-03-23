@@ -25,7 +25,56 @@ module.exports.route = async () => {
 				break;
 
 			case "list":
-				console.log(await list.run());
+				console.log("Please type 'all' if you would like to list all registers or 'filter' if you would like to filter by name, birthday date or both.")	
+				const listOption = await input.ask("$ ");
+				
+				let answerFilterByName = "";
+				let answerFilterByBirthdayDate = "";
+
+				switch (listOption) {
+					case "all":
+						console.log(await list.run(answerFilterByName, answerFilterByBirthdayDate));
+						break;	
+
+					case "filter":
+						console.log("Filter by 'name', 'birthday date' or 'both'.")
+						const filterOption = await input.ask("$ ");
+				
+						switch (filterOption) {
+							case "name":
+								console.log("Please insert the name.");
+								answerFilterByName = await input.ask("$ ");
+								break;
+
+							case "birthday date":
+								console.log("Please insert the birthday date.");
+								answerFilterByBirthdayDate = await input.ask("$ ");
+								break;
+
+							case "both":
+								console.log("Please insert the name.");
+								answerFilterByName = await input.ask("$ ");
+								console.log("Please insert the birthday date.");
+								answerFilterByBirthdayDate = await input.ask("$ ");
+								break;
+						}
+						
+						try {
+							console.log(await list.run(answerFilterByName, answerFilterByBirthdayDate));
+							break;
+						}
+						
+						catch(error) {
+							if (error.message === "list_undefined"){
+								console.log("We were unable to find this entry.");
+							} 
+							else {
+								console.log("There was an error.");
+							}
+						}
+						break;
+				}
+
 				break;
 
 			case "find":
