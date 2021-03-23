@@ -44,3 +44,22 @@ module.exports.delete = async (request) => {
 	else
 		await file.writeDB(fileName, list);
 };
+
+module.exports.update = async (request, name, birthday) => {
+	let list = await file.readDB(fileName);
+
+	let object = list.find((item) => item.id === request);
+
+	if (object !== undefined && name !== "" && birthday !== "") {
+		list[list.indexOf(object)] = new Birthday(object.id, name, birthday, object.createdAt);
+	} else if (object !== undefined && name !== "" && birthday === "") {
+		list[list.indexOf(object)] = new Birthday(object.id, name, object.date, object.createdAt);
+	} else if (object !== undefined && name === "" && birthday !== "") {
+		list[list.indexOf(object)] = new Birthday(object.id, object.name, birthday, object.createdAt);
+	}
+
+	if (object === undefined)
+		return null;
+	else
+		await file.writeDB(fileName, list);
+};
