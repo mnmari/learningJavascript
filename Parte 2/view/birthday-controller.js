@@ -51,7 +51,7 @@ module.exports.route = async () => {
 					const answerDelete = await input.ask("$ ");
 
 					try {
-						await remove.run(answerDelete);
+						console.log(await remove.run(answerDelete));
 						console.log("The birthday id '" + answerDelete + "' was successfully deleted!")
 					}
 
