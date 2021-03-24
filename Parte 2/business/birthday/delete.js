@@ -7,7 +7,7 @@ module.exports.run = async (value) => {
 	let element = await repository.delete(value);
 
 	if (element !== null) {
-		return;
+		return element;
 	}
 	else {
 		throw new Error("delete_undefined");
