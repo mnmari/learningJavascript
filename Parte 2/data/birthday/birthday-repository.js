@@ -79,37 +79,38 @@ module.exports.find = async (request) => {
 
 module.exports.delete = async (request) => {
 	let list = await file.readDB(fileName);
+	
+	let index = list.findIndex((item) => item.id === request);
 
-	let object = list.find((item) => item.id === request);
-
-	list.splice(list.indexOf(object), 1);
-
-	if (object === undefined)
+	if (index === -1) {
 		return null;
-	else
-		await file.writeDB(fileName, list);
+	}
+
+	let deletedObject = list[index];
+	list.splice(index, 1);
+
+	await file.writeDB(fileName, list);
+	return new Birthday(deletedObject.id, deletedObject.name, deletedObject.date, deletedObject.createdAt);
+	
 };
 
 module.exports.update = async (request, name, birthday) => {
 	let list = await file.readDB(fileName);
 
-	let object = list.find((item) => item.id === request);
+	let index = list.findIndex((item) => item.id === request);
 
-	//update name and birthday
-	if (object !== undefined && name !== "" && birthday !== "") {
-		list[list.indexOf(object)] = new Birthday(object.id, name, birthday, object.createdAt);
-	}
-	//update name
-	else if (object !== undefined && name !== "" && birthday === "") {
-		list[list.indexOf(object)] = new Birthday(object.id, name, object.date, object.createdAt);
-	}
-	//update birthday
-	else if (object !== undefined && name === "" && birthday !== "") {
-		list[list.indexOf(object)] = new Birthday(object.id, object.name, birthday, object.createdAt);
-	}
-
-	if (object === undefined)
+	if (index === -1) {
 		return null;
-	else
-		await file.writeDB(fileName, list);
+	}
+
+	if (name !== "") {
+		list[index].name = name;
+	}
+
+	if (birthday !== "") {
+		list[index].date = birthday;
+	}
+
+	await file.writeDB(fileName, list);
+	return new Birthday(list[index].id, list[index].name, list[index].date, list[index].createdAt);
 };

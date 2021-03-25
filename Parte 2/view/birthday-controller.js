@@ -100,7 +100,7 @@ module.exports.route = async () => {
 					const answerDelete = await input.ask("$ ");
 
 					try {
-						await remove.run(answerDelete);
+						console.log(await remove.run(answerDelete));
 						console.log("The birthday id '" + answerDelete + "' was successfully deleted!")
 					}
 
@@ -144,7 +144,7 @@ module.exports.route = async () => {
 					}
 						
 					try {
-						await update.run(answerUpdate, answerUpdateName, answerUpdateBirthdayDate);
+						console.log(await update.run(answerUpdate, answerUpdateName, answerUpdateBirthdayDate));
 						console.log("The birthday id '" + answerUpdate + "' was successfully updated!")
 					}
 	
