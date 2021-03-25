@@ -16,52 +16,11 @@ module.exports.write = async (data) => {
 module.exports.list = async (name, birthdayDate) => {
 	let list = await file.readDB(fileName);
 
-	//list all
-	if (name === "" && birthdayDate === "") {
-		return list.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
-	}
-
-	//filter by name
-	else if (name !== "" && birthdayDate === "") {
-		//checks if at least one register is found
-		if ((list.filter((item) => item.name === name)).length !== 0) {
-			return list.filter((item) => item.name === name)
-				.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
-		}
-		else {
-			return null;
-		}
-	}
-
-	//filter by birthday date
-	else if (name === "" && birthdayDate !== "") {
-		//checks if at least one register is found
-		if ((list.filter((item) => item.date === birthdayDate)).length !== 0) {
-			return list.filter((item) => item.date === birthdayDate)
-				.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
-		}
-		else
-			return null;
-	}
-
-	//filter by name and birthday date
-	else if (name !== "" && birthdayDate !== "") {
-		
-		//checks if at least one register is found
-		if ((list.filter((item) => findNameAndBirthdayDate(item, name, birthdayDate))).length !== 0) {
-			return list.filter((item) => findNameAndBirthdayDate(item, name, birthdayDate))
-				.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
-		}
-		else
-			return null;
-	}
-	
-	function findNameAndBirthdayDate(item, name, birthdayDate) {
-		if (item.name === name && item.date === birthdayDate)
-			return true;
-		else
-			return false;
-	}
+	return list.filter((item) => (((item.name.includes(name)) && name !== "") ||
+								   (birthdayDate === item.date)) ||
+								  ((name === "") &&
+								   (birthdayDate === "")))
+				   .map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
 };
 
 module.exports.find = async (request) => {

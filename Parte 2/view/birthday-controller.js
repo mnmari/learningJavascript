@@ -59,19 +59,7 @@ module.exports.route = async () => {
 								break;
 						}
 						
-						try {
-							console.log(await list.run(answerFilterByName, answerFilterByBirthdayDate));
-							break;
-						}
-						
-						catch(error) {
-							if (error.message === "list_undefined"){
-								console.log("We were unable to find this entry.");
-							} 
-							else {
-								console.log("There was an error.");
-							}
-						}
+						console.log(await list.run(answerFilterByName, answerFilterByBirthdayDate));
 						break;
 				}
 
