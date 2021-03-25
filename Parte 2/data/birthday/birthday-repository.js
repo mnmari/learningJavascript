@@ -13,16 +13,24 @@ module.exports.write = async (data) => {
 	return data;
 };
 
-module.exports.list = async () => {
+module.exports.list = async (name, birthdayDate) => {
 	let list = await file.readDB(fileName);
 
-	return list.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
+	return list.filter((item) => (name === "" && birthdayDate === "") ||
+								 (name !== "" && birthdayDate === "" && item.name.includes(name)) ||
+								 (birthdayDate !== "" && name === "" && birthdayDate === item.date) ||
+								 (
+									(name !== "" && birthdayDate !== "") &&
+								 	(item.name.includes(name) && birthdayDate === item.date)
+								 )
+								 )
+				.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
 };
 
 module.exports.find = async (request) => {
 	let list = await file.readDB(fileName);
-		
-	let object = list.find((item) => item.id === request); 
+
+	let object = list.find((item) => item.id === request);
 
 	if (object === undefined) {
 		return null;
