@@ -95,7 +95,7 @@ module.exports.route = async () => {
 					}
 						
 					try {
-						await update.run(answerUpdate, answerUpdateName, answerUpdateBirthdayDate);
+						console.log(await update.run(answerUpdate, answerUpdateName, answerUpdateBirthdayDate));
 						console.log("The birthday id '" + answerUpdate + "' was successfully updated!")
 					}
 	
