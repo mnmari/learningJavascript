@@ -16,11 +16,15 @@ module.exports.write = async (data) => {
 module.exports.list = async (name, birthdayDate) => {
 	let list = await file.readDB(fileName);
 
-	return list.filter((item) => (((item.name.includes(name)) && name !== "") ||
-								   (birthdayDate === item.date)) ||
-								  ((name === "") &&
-								   (birthdayDate === "")))
-				   .map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
+	return list.filter((item) => (name === "" && birthdayDate === "") ||
+								 (name !== "" && birthdayDate === "" && item.name.includes(name)) ||
+								 (birthdayDate !== "" && name === "" && birthdayDate === item.date) ||
+								 (
+									(name !== "" && birthdayDate !== "") &&
+								 	(item.name.includes(name) && birthdayDate === item.date)
+								 )
+								 )
+				.map((item) => new Birthday(item.id, item.name, item.date, item.createdAt));
 };
 
 module.exports.find = async (request) => {
