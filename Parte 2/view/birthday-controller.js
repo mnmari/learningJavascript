@@ -5,6 +5,7 @@ let list = require("../business/birthday/list");
 let write = require("../business/birthday/write");
 let find = require("../business/birthday/find");
 let remove = require("../business/birthday/delete");
+let update = require("../business/birthday/update");
 
 module.exports.route = async () => {
 	let shouldContinue = true;
@@ -43,6 +44,7 @@ module.exports.route = async () => {
 						console.log("There was an error.");
 					}
 				}
+				break;
 
 				case "delete":
 					console.log("Please insert the birthday id.");
@@ -61,8 +63,51 @@ module.exports.route = async () => {
 							console.log("There was an error.");
 						}
 					}
+					break;
 
-				break;
+				case "update":
+					console.log("Please insert the birthday id.");
+					const answerUpdate = await input.ask("$ ");
+					
+					console.log("What would you like to update? \n (Please write 'name', 'birthday date' or 'both').")
+					const option = await input.ask("$ ");
+					
+					let answerUpdateName = "";
+					let answerUpdateBirthdayDate = "";
+
+					switch (option) {
+						case "name":
+							console.log("Please insert the name.");
+							answerUpdateName = await input.ask("$ ");
+							break;
+
+						case "birthday date":
+							console.log("Please insert the birthday date.");
+							answerUpdateBirthdayDate = await input.ask("$ ");
+							break;
+
+						case "both":
+							console.log("Please insert the name.");
+							answerUpdateName = await input.ask("$ ");
+							console.log("Please insert the birthday date.");
+							answerUpdateBirthdayDate = await input.ask("$ ");
+							break;
+					}
+						
+					try {
+						console.log(await update.run(answerUpdate, answerUpdateName, answerUpdateBirthdayDate));
+						console.log("The birthday id '" + answerUpdate + "' was successfully updated!")
+					}
+	
+					catch(error) {
+						if (error.message === "update_undefined"){
+							console.log("This birthday id doesn't exist!");
+						} 
+						else {
+							console.log("There was an error.");
+						}
+					}
+					break;
 
 			case "exit":
 				shouldContinue = false;

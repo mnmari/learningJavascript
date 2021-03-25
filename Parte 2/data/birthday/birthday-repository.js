@@ -48,3 +48,24 @@ module.exports.delete = async (request) => {
 	return new Birthday(deletedObject.id, deletedObject.name, deletedObject.date, deletedObject.createdAt);
 	
 };
+
+module.exports.update = async (request, name, birthday) => {
+	let list = await file.readDB(fileName);
+
+	let index = list.findIndex((item) => item.id === request);
+
+	if (index === -1) {
+		return null;
+	}
+
+	if (name !== "") {
+		list[index].name = name;
+	}
+
+	if (birthday !== "") {
+		list[index].date = birthday;
+	}
+
+	await file.writeDB(fileName, list);
+	return new Birthday(list[index].id, list[index].name, list[index].date, list[index].createdAt);
+};
