@@ -62,7 +62,7 @@ module.exports.update = async (request, name, birthday) => {
 		list[index].name = name;
 	}
 
-	if (birthday != "") {
+	if (birthday !== "") {
 		list[index].date = birthday;
 	}
 
