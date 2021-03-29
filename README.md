@@ -1,4 +1,4 @@
-# Betinho
+# learningJavascript
 ## Colinha pro git:
 
 - git clone [url do projeto]: baixa o projeto pela primeira vez
